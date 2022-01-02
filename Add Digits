@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int addDigits(int num) {
+        if(num < 10){
+            return num;
+        }
+        vector<int> digits;
+        while(num != 0){
+            int digit = num % 10;
+            digits.push_back(digit);
+            num = num / 10;
+        }
+        int result = 0;
+        for(int x : digits){
+            result += x;
+        }
+        return addDigits(result);
+    }
+};
