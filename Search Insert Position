@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        for(size_t i = 0; i < nums.size(); i++){
+            if(nums[i] == target){
+                return i;
+            }
+            if(target < nums[nums.size()-1]){
+                if(nums[i] <= target && nums[i+1] >= target){
+                    return i+1;
+                }
+            }
+            if(target < nums[0]){
+                return 0;
+            }
+        }
+        return nums.size();
+        
+    }
+};
