@@ -1,0 +1,19 @@
+class Solution:
+    def findComplement(self, num: int) -> int:
+        bitNum = bin(num)
+        strBitNum = str(bitNum)[2:]
+        print(strBitNum)
+        resultStr = ""
+        for i in strBitNum:
+            if i == "1":
+                zero = "0"
+                resultStr = resultStr + zero
+            if i == "0":
+                one = "1"
+                resultStr = resultStr + one
+        print(resultStr)
+        result = 0;
+        for i in range(len(resultStr)):
+            result += int(resultStr[i]) * 2**(len(resultStr) - i - 1)
+            
+        return result
